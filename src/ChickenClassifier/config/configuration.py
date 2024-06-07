@@ -1,4 +1,6 @@
-from src.ChickenClassifier.entity.config_entity import DataIngestionConfig, PrepareBaseModelConfig
+import os
+from pathlib import Path
+from src.ChickenClassifier.entity.config_entity import DataIngestionConfig, PrepareBaseModelConfig, PrepareCallbacksConfig, TrainingConfig
 from src.ChickenClassifier.constants import CONFIG_FILE_PATH, PARAMS_FILE_PATH
 from src.ChickenClassifier.utils.common import read_yaml, create_directories
 
@@ -52,3 +54,41 @@ class ConfigurationManager:
         )
 
         return prepare_base_model_config
+    
+    def get_prepare_callbacks_config(self) -> PrepareCallbacksConfig:
+        config = self.config.prepare_callbacks
+        # accessing only directory name without filename
+        model_ckpt_dir = os.path.dirname(config.checkpoint_model_filepath)
+        create_directories([
+            Path(model_ckpt_dir),
+            Path(config.tensorboard_root_log_dir)
+            ])
+
+        prepare_callback_config = PrepareCallbacksConfig(
+            root_dir= config.root_dir,
+            tensorboard_root_log_dir= config.tensorboard_root_log_dir,
+            checkpoint_model_filepath= config.checkpoint_model_filepath
+        )
+
+        return prepare_callback_config
+    
+    def get_training_config(self) -> TrainingConfig:
+        training = self.config.training
+        params = self.params
+        basemodel_config = self.config.prepare_base_model
+        training_data = os.path.join(self.config.data_ingestion.unzip_dir, "Chicken-fecal-images")
+
+        create_directories([training.root_dir])
+
+        training_config = TrainingConfig(
+            root_dir= training.root_dir,
+            trained_model_path= training.trained_model_path,
+            updated_base_model_path= basemodel_config.updated_base_model_path,
+            training_data= Path(training_data),
+            params_epoch= params.EPOCHS,
+            params_batch_size= params.BATCH_SIZE,
+            params_is_augmentation= params.AUGMENTATION,
+            params_image_size= params.IMAGE_SIZE
+        )
+
+        return training_config
