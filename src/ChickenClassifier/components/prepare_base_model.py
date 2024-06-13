@@ -31,8 +31,8 @@ class PrepareBaseModel:
         )(flatten_in)
 
         full_model = tf.keras.models.Model(
-            input= model.input,
-            output= prediction
+            inputs= model.input,
+            outputs= prediction
         )
 
         full_model.compile(

@@ -1,5 +1,5 @@
 import os
-from src.ChickenClassifier.entity.config_entity import PrepareCallbacksConfig
+from ChickenClassifier.entity.config_entity import PrepareCallbacksConfig
 import tensorflow as tf
 import time
 

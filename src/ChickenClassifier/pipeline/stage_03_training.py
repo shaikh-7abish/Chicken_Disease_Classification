@@ -1,7 +1,7 @@
-from src.ChickenClassifier import logger
-from src.ChickenClassifier.components import prepare_callback
-from src.ChickenClassifier.components.training import Training
-from src.ChickenClassifier.config.configuration import ConfigurationManager
+from ChickenClassifier import logger
+from ChickenClassifier.components import prepare_callback
+from ChickenClassifier.components.training import Training
+from ChickenClassifier.config.configuration import ConfigurationManager
 
 
 STAGE_NAME = "Training"

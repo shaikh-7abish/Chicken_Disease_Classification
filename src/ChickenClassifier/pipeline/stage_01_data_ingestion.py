@@ -1,6 +1,6 @@
-from src.ChickenClassifier.config.configuration import ConfigurationManager
-from src.ChickenClassifier.components.data_ingestion import DataIngestion
-from src.ChickenClassifier import logger
+from ChickenClassifier.config.configuration import ConfigurationManager
+from ChickenClassifier.components.data_ingestion import DataIngestion
+from ChickenClassifier import logger
 
 STAGE_NAME = 'Data Ingestion Stage'
 

@@ -1,6 +1,6 @@
-from src.ChickenClassifier.config.configuration import ConfigurationManager
-from src.ChickenClassifier.components.prepare_base_model import PrepareBaseModel
-from src.ChickenClassifier import logger
+from ChickenClassifier.config.configuration import ConfigurationManager
+from ChickenClassifier.components.prepare_base_model import PrepareBaseModel
+from ChickenClassifier import logger
 
 STAGE_NAME = 'Prepare Base Model'
 

@@ -1,5 +1,5 @@
 from pathlib import Path
-from src.ChickenClassifier.entity.config_entity import TrainingConfig
+from ChickenClassifier.entity.config_entity import TrainingConfig
 import tensorflow as tf
 
 class Training:
