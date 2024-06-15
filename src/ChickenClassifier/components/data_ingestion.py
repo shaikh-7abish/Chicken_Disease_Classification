@@ -2,9 +2,9 @@ import os
 import urllib.request as request
 import zipfile
 from pathlib import Path
-from src.ChickenClassifier.entity.config_entity import DataIngestionConfig
-from src.ChickenClassifier import logger
-from src.ChickenClassifier.utils.common import get_size
+from ChickenClassifier.entity.config_entity import DataIngestionConfig
+from ChickenClassifier import logger
+from ChickenClassifier.utils.common import get_size
 
 
 class DataIngestion:

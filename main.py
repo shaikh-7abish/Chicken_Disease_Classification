@@ -2,7 +2,7 @@ from ChickenClassifier.pipeline.stage_03_training import ModelTrainingPipeline
 from ChickenClassifier.pipeline.stage_02_prepare_base_model import PrepareBaseModelPipeline
 from ChickenClassifier.pipeline.stage_01_data_ingestion import DataIngestionPipeline
 from ChickenClassifier import logger
-from ChickenClassifier.pipeline.stage_04_evaluaution import EvaluationPipeline
+from ChickenClassifier.pipeline.stage_04_evaluation import EvaluationPipeline
 
 STAGE_NAME = 'Data Ingestion Stage'
 try:
